@@ -1,11 +1,11 @@
 function Converter(valorCEP){
-    fetch("https://cep.awesomeapi.com.br/json/")
+    fetch("https://cep.awesomeapi.com.br/json/" + valorCEP)
         .then((response) => response.json())
-        .then((data) => alert(valorCEP + data + "11"))
+        .then((data) => alert(data.address + ", " + data.district + ", " + data.city + ", " + data.state))
         .catch((error) => console.log(error))
 }
 
 document.getElementById("endereco").addEventListener("click", ()=>{
-    let valorBR = document.getElementById("valorCEP").value
+    let valorCEP = document.getElementById("valorCEP").value
     Converter(valorCEP)
 })
